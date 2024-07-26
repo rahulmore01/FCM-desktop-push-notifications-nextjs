@@ -31,7 +31,7 @@ const firebaseConfig = {
   appId: "1:940221075:web:fde088d062f59fe",
   measurementId: "G-SGRX2V9",
 };
-
- 3) get "vapid key" from project settings>service accounts>generate key
+```
+3) get "vapid key" from project settings>service accounts>generate key
 
 4. get "service_key.json" from project settings>service accounts>generate key
