@@ -1,29 +1,37 @@
-# firebase-cloud-messaging-FCM--web-push-notifications-nextjs
+# Firebase Cloud Messaging (FCM) - Web Push Notifications in Next.js
 
-firebase-cloud-messaging(FCM)-web-push-notifications-nextjs - for desktop notifications using service workers
+Implementing desktop notifications using service workers with Firebase Cloud Messaging (FCM) in a Next.js application.
+
 ![image](https://github.com/user-attachments/assets/1aae43a0-cffc-4e4f-9777-1b124072b5c2)
 
+> **Note**: Even if the code is correct, ensure that your browser's notification permissions are enabled. If desktop/background notifications are not working, check the notification permissions in your browser settings.
 
-Note- even if code is perfect and still destop/background notifications are not working, check notification permissions of your browser.
+## Steps to Integrate Firebase Cloud Messaging
 
-1. get the firebaseConfig env files from -
+### 1. Get the Firebase Configuration
 
-<img width="1440" alt="image" src="https://github.com/user-attachments/assets/ec0c3bad-d256-4f69-9fa1-dc1a0ee3541d">
+Retrieve the Firebase configuration from your Firebase project settings:
+- Go to your Firebase project settings.
+- Navigate to **SDK setup and configuration**.
+- Copy the Firebase config snippet from there.
 
-2)put the same env's into "firebase-messaging-sw.js" file in public folder.
+### 2. Add Firebase Configuration to `firebase-messaging-sw.js`
 
-note- these are broken use your and dont use process.env.\* because serviceworkers cant access these from .env file
+Place the Firebase configuration in the `firebase-messaging-sw.js` file located in the `public` folder of your Next.js project. Note that service workers cannot access environment variables from `.env` files, so you need to include the configuration directly.
+
+```javascript
+// public/firebase-messaging-sw.js
 
 const firebaseConfig = {
-apiKey: "AIzaSyDwdTWcNktQmMrBQmwl7mSMO10",
-authDomain: "habbit-bb11baseapp.com",
-projectId: "habbder-b11e6",
-storageBucket: "habbit-buile6.appspot.com",
-messagingSenderId: "940229275",
-appId: "1:940221075:web:fde088d062f59fe",
-measurementId: "G-SGRX2V9",
-}; 3) get "vapid key" from project settings>service accounts>generate key
-<img width="1440" alt="image" src="https://github.com/user-attachments/assets/333098f0-952a-46b1-9940-cd7d11dc070d">
+  apiKey: "AIzaSyDwdTWcNktQmMrBQmwl7mSMO10",
+  authDomain: "habbit-bb11baseapp.com",
+  projectId: "habbder-b11e6",
+  storageBucket: "habbit-buile6.appspot.com",
+  messagingSenderId: "940229275",
+  appId: "1:940221075:web:fde088d062f59fe",
+  measurementId: "G-SGRX2V9",
+};
+
+ 3) get "vapid key" from project settings>service accounts>generate key
 
 4. get "service_key.json" from project settings>service accounts>generate key
-   <img width="1432" alt="image" src="https://github.com/user-attachments/assets/49dc3b3c-e054-4636-83ef-e0d90a55e51c">
